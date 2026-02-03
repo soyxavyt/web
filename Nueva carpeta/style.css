@@ -1,0 +1,265 @@
+
+body, html {
+    font-family: 'Times New Roman', Times, serif;
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* Fondo base */
+    background: linear-gradient(135deg, #000000de 0%, #013591a6 100%);
+    background-attachment: fixed;
+    overflow: hidden; /* Evita que los círculos creen barras de desplazamiento */
+    
+    /* Transición para el efecto de "montaña" (levante) */
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Efecto de "Levante" cuando el mouse toca el fondo */
+body:hover {
+    transform: scale(1.02); /* Se levanta levemente */
+}
+
+/* Capa de los círculos miniaturas */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500%; /* Más ancho para que la animación horizontal sea infinita */
+    height: 400%;
+    z-index: 1; /* Se mantiene detrás de todo */
+    
+    /* Creamos los círculos usando un gradiente radial repetitivo */
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.4) 2px, transparent 2px);
+    background-size: 50px 50px; /* Espaciado entre círculos */
+    
+    /* Animación horizontal */
+    animation: moverFondo 20s linear infinite;
+}
+
+/* Animación de los círculos */
+@keyframes moverFondo {
+    from {
+        transform: translateX(0%);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Aseguramos que el contenedor no se estire con el body */
+.contenedor {
+    position: relative;
+    z-index: 10;
+}
+
+.contenedor {
+    text-align: center;
+    /* Reducimos el padding superior para que no se vea tan alto */
+    padding: 60px 20px; 
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 0.15); 
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    width: 90%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+   .icono {
+    width: 100px;
+    height: 100px;
+    
+    /* Hace que la imagen sea un círculo perfecto */
+    border-radius: 50%; 
+    
+    /* El borde circular (la orilla) */
+    border: 3px solid white; 
+    
+    /* Mantiene la proporción de tu foto sin estirarla */
+    object-fit: cover; 
+    
+    /* Tu efecto de brillo (opcional, ajustado al tamaño de 200px) */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.733);
+    
+    /* Espaciado para que no toque el texto de abajo */
+    margin-bottom: 3px;
+    
+    /* Asegura que se comporte como un bloque centrado */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+     /* La transición ya la tienes, es la que hace que "vuelva" suavemente */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+} 
+
+.icono:hover{
+    transform: scale(1.1);    /* Crece un 10% */
+    box-shadow: 0 30px 20px rgba(0, 0, 0, 0.2); /* Sombra más profunda al elevarse */
+}
+
+
+
+
+.boton-redireccion {
+    background-color: #29cc5a; /* Color inicial */
+    color: #ffffff;
+    padding: 12px 60px;
+    display: inline-block;
+    margin-top: 5px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    /* La transición ya la tienes, es la que hace que "vuelva" suavemente */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 2px;
+}
+
+/* Este es el estado cuando el mouse está encima */
+.boton-redireccion:hover {
+    background-color: #045523; /* Cambia al azul del fondo o el que gustes */
+    color: #ffffff;           /* El texto cambia a blanco para que resalte */
+    transform: scale(1.1);    /* Crece un 10% */
+    box-shadow: 0 30px 20px rgba(0, 0, 0, 0.2); /* Sombra más profunda al elevarse */
+}
+
+
+
+
+.boton {
+    background-color: #a1018c; /* Color inicial */
+    color: #ffffff;
+    padding: 12px 70px;
+    display: inline-block;
+    margin-top: 7px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    /* La transición ya la tienes, es la que hace que "vuelva" suavemente */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Este es el estado cuando el mouse está encima */
+.boton:hover {
+    background-color: #30003b; /* Cambia al azul del fondo o el que gustes */
+    color: #ffffff;           /* El texto cambia a blanco para que resalte */
+    transform: scale(1.1);    /* Crece un 10% */
+    box-shadow: 0 30px 20px rgba(0, 0, 0, 0.2); /* Sombra más profunda al elevarse */
+}
+
+.t{
+    color: #ffffff;
+}
+
+.logos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: -20px;
+}
+
+.logo{
+    width: 30px;
+    height: auto;
+    display: block;
+    border: 1px;
+    border-radius: 50px;
+}
+
+.wa{
+    width: 50px;
+    height: auto;
+    display: block;
+    color: #ffffff;
+    border-radius: 10px;
+}
+
+.parrafo{
+    margin-top: -17px;
+    color: rgba(255, 255, 255, 0.808);
+
+    
+}
+
+
+/* Estilos específicos para Celulares */
+@media (max-width: 600px) {
+    .contenedor {
+        padding: 40px 20px;
+        margin: 20px; /* Evita que el contenedor pegue a los bordes del cel */
+    }
+
+    .icono {
+        width: 80px;  /* Icono un poco más pequeño en móviles */
+        height: 80px;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Texto más ajustado */
+    }
+
+    .boton, .boton-redireccion {
+        width: 100%;       /* Botones a lo ancho total del contenedor */
+        padding: 12px 0;   /* Ajuste de relleno */
+        box-sizing: border-box;
+    }
+    
+    .contenedor-logos {
+        gap: 10px; /* Menos espacio entre logos en pantallas estrechas */
+    }
+}
+
+
+.p{
+    margin-top: 30px;
+    color: #ffffff;
+}
+
+
+
+
+
+
+/* La capa oscura de fondo */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Fondo negro semitransparente */
+    backdrop-filter: blur(5px);
+    display: none; /* Oculto por defecto */
+    z-index: 999;
+    cursor: zoom-out;
+}
+
+/* Clase que se aplicará al icono para agrandarlo */
+.icono.ampliado {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(3); /* Se mueve al centro y crece 3 veces */
+    z-index: 1000;
+    border-radius: 10px; /* Opcional: que deje de ser círculo al agrandarse */
+    cursor: zoom-out;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* Asegúrate que tu .icono original tenga transición para que el zoom se vea suave */
+.icono {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: zoom-in;
+}
+
